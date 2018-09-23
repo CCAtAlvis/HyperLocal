@@ -1,0 +1,11 @@
+#Options -MultiViews
+RewriteEngine On
+RewriteRule %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [QSA,L]
+
+#RewriteEngine On
+#remove the need for .php extention 
+#RewriteCond %{REQUEST_FILENAME} !-d 
+#RewriteCond %{REQUEST_FILENAME}\.php -f 
+#RewriteRule ^(.*)$ $1.php
