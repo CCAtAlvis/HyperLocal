@@ -1,14 +1,16 @@
 #Options -MultiViews
 RewriteEngine On
 
+# Note: specific routing must be before default routing
+# or they will be routed to default routing handler
 
-#routing specifically for api/ endpoint 
+# api routing: routing specifically for api/ endpoint 
 RewriteRule %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_URI} [A-Za-z0-9]*/api/+
 RewriteRule ^ api.php [QSA,L]
 
-#routing for anything else
+# default routing: routing for anything else
 RewriteRule %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^ index.php [QSA,L]
