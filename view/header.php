@@ -12,6 +12,11 @@
 
     <!-- link all the required css files below -->
     <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+    <!-- <link rel="stylesheet" media="screen" href="static/css/bootstrap.min.css" />
+    <link rel="stylesheet" media="screen" href="static/css/bootstrap.grid.min.css" /> -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous">
+
+
 </head>
 <body>
 
