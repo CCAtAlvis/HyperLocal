@@ -10,8 +10,7 @@ spl_autoload_register(function ($class) {
 function LoadView(string $view)
 {
     $loadView = 'view/'.$view.'.php';
-    if (is_file($loadView))
-    {
+    if (is_file($loadView)) {
         include $loadView;
     } else {
         die('View not found');

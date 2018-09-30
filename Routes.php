@@ -28,7 +28,7 @@ class Routes
         foreach(explode('/', $this->baseURI) as $route)
         {
             if(trim($route) != '')
-                array_push($routes, $route);
+                array_push($routes, strtolower($route));
         }
 
         return $routes;
