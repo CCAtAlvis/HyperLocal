@@ -3,3 +3,5 @@ view/static/css/bootstrap.min.css
 view/static/js/bootstrap.bundle.min.js
 view/static/js/bootstrap.min.js
 view/static/js/jquery.js
+
+*.zip

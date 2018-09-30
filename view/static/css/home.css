@@ -1,0 +1,115 @@
+#body {
+    position: relative;
+    width: 80%;
+    margin: auto;
+
+    margin-top: 60px;
+    height: auto;
+    overflow-y: hidden;
+
+    display: flex;
+}
+
+.panels {
+    position: relative;
+    width: 50%;
+    height: auto;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+.left-panel #heading {
+    color: #fff;
+    font-size: 70px;
+    font-family: 'Old Standard TT';
+}
+
+.left-panel #para {
+    color: aliceblue;
+    font-size: 40px;
+    font-weight: normal;
+    font-family: 'Vidaloka';
+}
+
+.left-panel #link {
+    margin-bottom: 30px;
+}
+
+.left-panel #link a {
+    color: #0972b4;
+    font-size: 30px;
+    padding: 15px 100px;
+    border-radius: 40px;
+    font-family: 'Amatic SC';
+    border: 3px solid #0972b4;
+    transition: all 0.2s linear;
+}
+
+.left-panel #link a:hover {
+    color: aliceblue;
+    background-color: #0972b4;
+}
+
+
+.card {
+    position: absolute;
+    left: 100px; right: 0;
+    top: 0; bottom: 0;
+    margin: auto;
+
+    border-radius: 40px;
+    padding: 20px;
+    height: 400px;
+    width: 400px;
+    background: aliceblue;
+}
+
+.card .question {
+    color: #333;
+    font-size: 30px;
+    font-family: 'roboto';
+}
+
+.card .bottom-bar {
+    position: absolute;
+    width: 100%;
+    bottom: 20px;
+}
+
+.card .bottom-bar > div {
+    width: 50%;
+    float: left;
+}
+
+.card .bottom-bar .location {
+    font-size: 25px;
+    font-family: 'Charmonman';
+}
+
+.card .bottom-bar .ans-button a {
+    color: #0972b4;
+    border: 3px solid #0972b4;
+    font-size: 25px;
+    padding: 10px 50px;
+    border-radius: 40px;
+    font-family: 'Amatic SC';
+
+    transition: all 0.2s linear;
+}
+
+.card .bottom-bar .ans-button a:hover {
+    color: aliceblue;
+    background-color: #0972b4;
+}
+
+/* serif fonts */
+/* Alegreya|EB+Garamond|Old+Standard+TT|Playfair+Display|Vidaloka|Domine|Arapye|Cantata+One|Arbutus+Slab */
+
+/* sans */
+/* family=Josefin+Sans:300|Open+Sans|Raleway|Roboto */
+
+/* handwriting */
+/* Amatic+SC|Charmonman|Parisienne|Sacramento */
+
+/* display fonts */
+/* Cinzel+Decorative|Fredericka+the+Great|Poiret+One|Unica+One|Abril+Fatface */
