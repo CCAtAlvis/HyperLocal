@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Page Title</title>
+    <title><?= $title;?></title>
 
     <!-- meta tags follows -->
     <meta charset="utf-8" />
