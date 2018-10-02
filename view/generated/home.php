@@ -1,7 +1,7 @@
 <?php
     $title = 'Hi there';
 
-    $styling = LoadStyling(['home', 'cards']);
+    $styling = LoadStyling(['home', 'body', 'header', 'cards']);
     include_once 'view/header.php';
 ?>
 

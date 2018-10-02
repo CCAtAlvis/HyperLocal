@@ -58,5 +58,9 @@
         <div class="nav-item">
             <a data-hover="sign up" href="./sign-up">sign up</a>
         </div>
+
+        <div class="nav-item ans-button">
+            <a data-hover="sign in" href="./sign-in">sign in</a>
+        </div>
     </nav>
 </header>
