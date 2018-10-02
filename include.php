@@ -48,7 +48,7 @@ function LoadScripts(array $scripts) : string
             $html .= "<link rel='stylesheet' media='screen' href='$loadScript' />";
             echo $html;
         } else {
-            die("Stylesheet not found: $loadScript");
+            die("Script not found: $loadScript");
             // show 404 here
         }
     }

@@ -1,4 +1,7 @@
-<?php ?>
+<?php 
+    $title .= " | HyperLocal";
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -11,7 +14,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- link all the required css files below -->
+    <!-- load main stylesheet -->
     <link rel="stylesheet" media="screen" href="view/static/css/main.css" />
+
+    <!-- load all other dynamically loaded styles -->
+    <?= $styling;?>
+
     <!-- <link rel="stylesheet" media="screen" href="static/css/bootstrap.min.css" /> -->
     <!-- <link rel="stylesheet" media="screen" href="static/css/bootstrap.grid.min.css" /> -->
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" crossorigin="anonymous"> -->
@@ -40,15 +48,15 @@
 
     <nav id="navbar">
         <div class="nav-item">
-            <a data-hover="home">home</a>
+            <a data-hover="home" href="./home">home</a>
         </div>
 
         <div class="nav-item">
-            <a data-hover="about">about</a>
+            <a data-hover="about" href="./about">about</a>
         </div>
 
         <div class="nav-item">
-            <a data-hover="sign up">sign up</a>
+            <a data-hover="sign up" href="./sign-up">sign up</a>
         </div>
     </nav>
 </header>

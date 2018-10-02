@@ -21,6 +21,14 @@ else {
             LoadView('home');
         break;
 
+        case 'about':
+            LoadView('about');
+        break;
+
+        case 'sign-up':
+            LoadView('register');
+        break;
+
         default:
         // BOOM!
         // its 404
