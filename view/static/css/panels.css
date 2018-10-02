@@ -1,0 +1,28 @@
+/* single panel styling */
+.panels-1 {
+    position: relative;
+    width: 80%;
+    height: auto;
+    margin: auto;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    display: flex;
+}
+
+/* 2 panel styling */
+.panels-2 {
+    position: relative;
+    width: 50%;
+    height: auto;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+/* 3 panel styling */
+.panels-3 {
+    position: relative;
+    width: 33%;
+    height: auto;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}

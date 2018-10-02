@@ -15,19 +15,27 @@ else {
     switch ($routes[0]) {
         case 'index':
             LoadView('home');
-        break;
+            break;
 
         case 'home':
             LoadView('home');
-        break;
+            break;
 
         case 'about':
             LoadView('about');
-        break;
+            break;
 
         case 'sign-up':
             LoadView('register');
-        break;
+            break;
+
+        case 'sign-in':
+            LoadView('login');
+            break;
+
+        case 'forgot-password':
+            // LoadView('forgot');
+            break;
 
         default:
         // BOOM!

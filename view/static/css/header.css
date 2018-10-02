@@ -1,16 +1,8 @@
-body {
-    margin: 0;
-    background: #eee;
-    background: linear-gradient(90deg, rgba(150,0,0,0.5), rgba(0,0,150,0.5));
-}
-
 header {
     min-height: 30px;
     height: auto;
     overflow-y: hidden;
 }
-
-a { text-decoration: none; }
 
 #navbar {
     position: relative;
@@ -56,16 +48,4 @@ a { text-decoration: none; }
 .nav-item a:hover::before,
 .nav-item a:focus::before {
     max-width: 50%;
-}
-
-#body {
-    position: relative;
-    width: 80%;
-    margin: auto;
-
-    margin-top: 60px;
-    height: auto;
-    overflow-y: hidden;
-
-    display: flex;
 }

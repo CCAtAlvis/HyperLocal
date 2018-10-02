@@ -1,14 +1,18 @@
 .card {
-    position: absolute;
-    left: 100px; right: 0;
+    position: relative;
+    left: 0; right: 0;
     top: 0; bottom: 0;
     margin: auto;
 
     border-radius: 40px;
     padding: 20px;
-    height: 400px;
+    min-height: 400px;
     width: 400px;
     background: aliceblue;
+
+    height: auto;
+    overflow: hidden;
+    display: flex;
 }
 
 .card .question {
@@ -33,7 +37,7 @@
     font-family: 'Charmonman';
 }
 
-.card .bottom-bar .ans-button a {
+.card .ans-button a {
     color: #0972b4;
     border: 3px solid #0972b4;
     font-size: 25px;
@@ -44,7 +48,7 @@
     transition: all 0.2s linear;
 }
 
-.card .bottom-bar .ans-button a:hover {
+.card .ans-button a:hover {
     color: aliceblue;
     background-color: #0972b4;
 }
