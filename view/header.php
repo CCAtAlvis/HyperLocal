@@ -15,7 +15,7 @@
 
     <!-- link all the required css files below -->
     <!-- load main stylesheet -->
-    <link rel="stylesheet" media="screen" href="view/static/css/main.css" />
+    <!-- <link rel="stylesheet" media="screen" href="view/static/css/main.css" /> -->
 
     <!-- load all other dynamically loaded styles -->
     <?= $styling;?>

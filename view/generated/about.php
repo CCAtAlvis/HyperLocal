@@ -1,9 +1,9 @@
 <?php
     $title = 'About';
+
+    $styling = LoadStyling(['main', 'cards']);
     include_once 'view/header.php';
 ?>
-
-<link rel="stylesheet" href="./view/static/css/home.css" />
 
 <div id="body">
     <div class="left-panel panels">
@@ -24,5 +24,7 @@
 </div>
 
 <?php
+
+    $scripts = LoadScripts([]);
     include_once 'view/footer.php';
 ?>

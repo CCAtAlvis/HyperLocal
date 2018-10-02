@@ -1,3 +1,63 @@
+body {
+    margin: 0;
+    background: #eee;
+    background: linear-gradient(90deg, rgba(150,0,0,0.5), rgba(0,0,150,0.5));
+}
+
+header {
+    min-height: 30px;
+    height: auto;
+    overflow-y: hidden;
+}
+
+a { text-decoration: none; }
+
+#navbar {
+    position: relative;
+    float: right;
+    right: 40px;
+    /* background: #fff; */
+}
+
+.nav-item {
+    position: relative;
+    padding: 20px;
+    float: left;
+}
+
+.nav-item a {
+	position: relative;
+	display: inline-block;
+	outline: none;
+	text-decoration: none;
+	letter-spacing: 1px;
+	/* color: #0972b4; */
+    /* color: #6f6; */
+    color: #000;
+    font-size: 30px;
+    font-family: 'raleway';
+    font-weight: bolder;
+}
+
+.nav-item a::before {
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+    max-width: 0;
+	color: aqua;
+	content: attr(data-hover);
+	-webkit-transition: max-width 0.5s;
+	-moz-transition: max-width 0.5s;
+	transition: max-width 0.5s;
+	white-space: nowrap;
+}
+
+.nav-item a:hover::before,
+.nav-item a:focus::before {
+    max-width: 50%;
+}
+
 #body {
     position: relative;
     width: 80%;
@@ -50,57 +110,6 @@
     background-color: #0972b4;
 }
 
-
-.card {
-    position: absolute;
-    left: 100px; right: 0;
-    top: 0; bottom: 0;
-    margin: auto;
-
-    border-radius: 40px;
-    padding: 20px;
-    height: 400px;
-    width: 400px;
-    background: aliceblue;
-}
-
-.card .question {
-    color: #333;
-    font-size: 30px;
-    font-family: 'roboto';
-}
-
-.card .bottom-bar {
-    position: absolute;
-    width: 100%;
-    bottom: 20px;
-}
-
-.card .bottom-bar > div {
-    width: 50%;
-    float: left;
-}
-
-.card .bottom-bar .location {
-    font-size: 25px;
-    font-family: 'Charmonman';
-}
-
-.card .bottom-bar .ans-button a {
-    color: #0972b4;
-    border: 3px solid #0972b4;
-    font-size: 25px;
-    padding: 10px 50px;
-    border-radius: 40px;
-    font-family: 'Amatic SC';
-
-    transition: all 0.2s linear;
-}
-
-.card .bottom-bar .ans-button a:hover {
-    color: aliceblue;
-    background-color: #0972b4;
-}
 
 /* serif fonts */
 /* Alegreya|EB+Garamond|Old+Standard+TT|Playfair+Display|Vidaloka|Domine|Arapye|Cantata+One|Arbutus+Slab */

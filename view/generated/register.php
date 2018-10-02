@@ -1,17 +1,11 @@
 <?php
     $title = 'Register';
+
+    $styling = LoadStyling(['main', 'register', 'cards']);
     include_once 'view/header.php';
 ?>
 
-<link rel="stylesheet" href="./view/static/css/home.css" />
-
 <div id="body">
-    <div class="left-panel panels">
-        <h1 id="heading">Build your own <br>community.</h1>
-        <p id="para">Connect with people around you. Easily.</p>
-        <div id="link"><a>Know more</a></div>
-    </div>
-
     <div class="right-panel panels">
         <div class="card">
             <p class="question">Where can i eat awesome pizzzza?</p>
@@ -24,5 +18,7 @@
 </div>
 
 <?php
+
+    $scripts = LoadScripts([]);
     include_once 'view/footer.php';
 ?>
