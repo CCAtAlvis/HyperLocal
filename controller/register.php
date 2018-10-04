@@ -12,16 +12,22 @@ if( ((isset($_SESSION['login']) && $_SESSION['login'] == "LOGIN") ||
     header("Location: members/dashboard");
 }
 
-// var_dump($_POST);
-
 try {
-    $username = $_POST['username'];
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-    $confpass = $_POST['confpass'];
+    $username = $_POST['username'] ?? null;
+    $email = $_POST['email'] ?? null;
+    $password = $_POST['password'] ?? null;
+    $confpass = $_POST['confpass'] ?? null;
     $confcode = md5($email);
     // $date = date("Y-m-d H:i:s");
     $date = date(DATE_ISO8601);
+
+    if(!$username || !$email || !$password || !$confpass) {
+        $res["status"]="ERROR";
+        $res["message"]="All fields are compulsory";
+
+        $resJson = json_encode($res);
+        die($resJson);    
+    }
 
     if ($password !== $confpass) {
         $res["status"]="ERROR";
@@ -85,12 +91,12 @@ try {
     die($resJson);
 }
 catch(Exception $e) {
-    echo 'ERROR: ' . $e->getMessage();
-    $res->status="ERROR";
-    $res->message="Something went wrong!";
+    // echo 'ERROR: ' . $e->getMessage();
+    $res["status"]="ERROR";
+    $res["message"]="Something went wrong!";
 
     $res = json_encode($res);
-    echo $res;
+    die($res);
 }
-    
+
 ?>
