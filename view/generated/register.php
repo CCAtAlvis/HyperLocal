@@ -16,16 +16,16 @@
             <p class="question">
                 <form class="form">
                     <div class="input">
-                        <input type="name" placeholder="Name *">
+                        <input type="text" name="username" placeholder="Name">
                     </div>
                     <div class="input">
-                        <input type="email" placeholder="Email *">
+                        <input type="email" name="email" placeholder="Email">
                     </div>
                     <div class="input">
-                        <input type="password" placeholder="Password *">
+                        <input type="password" name="password" placeholder="Password">
                     </div>
                     <div class="input">
-                        <input type="password" placeholder="Confirm password *">
+                        <input type="password" name="confpass" placeholder="Confirm password">
                     </div>
                 </form>
             </p>

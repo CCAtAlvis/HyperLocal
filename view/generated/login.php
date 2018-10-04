@@ -16,10 +16,10 @@
             <p class="question">
                 <div class="form">
                     <div class="input">
-                        <input type="email" placeholder="Email *">
+                        <input type="email" name="param" placeholder="Username or Email">
                     </div>
                     <div class="input">
-                        <input type="password" placeholder="Password *">
+                        <input type="password" name="password" placeholder="Password">
                     </div>
 
                     <br><br>
