@@ -32,7 +32,7 @@
 
             <div class="bottom-bar">
                 <div class="ans-button">
-                    <a>Sign Up</a>
+                    <a class="sign-up">Sign Up</a>
                 </div>
 
                 <div class="link-text">
@@ -45,6 +45,6 @@
 
 <?php
 
-    $scripts = LoadScripts([]);
+    $scripts = LoadScripts(['register']);
     include_once 'view/footer.php';
 ?>

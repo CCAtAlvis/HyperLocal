@@ -7,6 +7,8 @@ spl_autoload_register(function ($class) {
     include $class . '.php';
 });
 
+// pass in the name of view to load, 
+// name must be same as that of the generated view without extension
 function LoadView(string $view)
 {
     $loadView = 'view/generated/'.$view.'.php';
@@ -14,6 +16,19 @@ function LoadView(string $view)
         include $loadView;
     } else {
         die("View not found $loadView");
+        // show 404 here
+    }
+}
+
+// pass in the name of API endoint to load, 
+// name must be same as that of the API without extension
+function LoadAPI(string $API)
+{
+    $loadAPI = 'controller/'.$API.'.php';
+    if (is_file($loadAPI)) {
+        include $loadAPI;
+    } else {
+        die("API not found $loadAPI");
         // show 404 here
     }
 }
@@ -27,7 +42,7 @@ function LoadStyling(array $styles) : string
         $loadStyle = 'view/static/css/'.$style.'.css';
         if (is_file($loadStyle)) {
             $html .= "<link rel='stylesheet' media='screen' href='$loadStyle' />";
-            echo $html;
+            // echo $html;
         } else {
             die("Stylesheet not found: $loadStyle");
             // show 404 here
@@ -45,8 +60,8 @@ function LoadScripts(array $scripts) : string
     foreach($scripts as $script) {
         $loadScript = 'view/static/js/'.$script.'.js';
         if (is_file($loadScript)) {
-            $html .= "<link rel='stylesheet' media='screen' href='$loadScript' />";
-            echo $html;
+            $html .= "<script src='$loadScript'></script>";
+            // echo $html;
         } else {
             die("Script not found: $loadScript");
             // show 404 here

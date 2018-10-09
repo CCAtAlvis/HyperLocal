@@ -1,15 +1,15 @@
 <?php
 
-require './db.php';
+require './controller/db.php';
 date_default_timezone_set("Asia/Kolkata");
-header('Content-Type: application/json');
+// header('Content-Type: application/json');
 $res = [];
 
 
 if( ((isset($_SESSION['login']) && $_SESSION['login'] == "LOGIN") ||
     (isset($_COOKIE['login']) && $_COOKIE['login'] == "LOGIN"))) {
     // some loccation to redirect
-    header("Location: members/dashboard");
+    // header("Location: members/dashboard");
 }
 
 try {
