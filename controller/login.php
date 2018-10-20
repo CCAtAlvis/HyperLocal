@@ -2,7 +2,7 @@
 
 session_start();
 
-require './db.php';
+require './controller/db.php';
 date_default_timezone_set("Asia/Kolkata");
 // header('Content-Type: application/json');
 $res = [];
@@ -17,8 +17,8 @@ if( ((isset($_SESSION['login']) && $_SESSION['login'] == "LOGIN") ||
 // var_dump($_POST);
 
 try {
-    $param = $_POST['param'] ?? null;
-    $password = $_POST['password'] ?? null;
+    $param = $_POST['param'] ?? false;
+    $password = $_POST['password'] ?? false;
     $sql = "";
 
     if (!$param || !$password) {
@@ -56,12 +56,15 @@ try {
         die($resJson);
     }
 
+
     $conn = null;
     
     $res["status"]="SUCCESS";
     $res["message"]="Logging you in";
 
     $_SESSION["login"] = "LOGIN";
+
+    $_SESSION['user_id'] = $result['id'];
 
     $resJson = json_encode($res);
     die($resJson);

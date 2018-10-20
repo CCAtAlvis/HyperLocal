@@ -15,8 +15,9 @@
         <div class="card">
             <p class="question">
                 <div class="form">
+                    <form>
                     <div class="input">
-                        <input type="email" name="param" placeholder="Username or Email">
+                        <input type="text" name="param" placeholder="Username or Email">
                     </div>
                     <div class="input">
                         <input type="password" name="password" placeholder="Password">
@@ -25,8 +26,9 @@
                     <br><br>
 
                     <div class="ans-button">
-                        <a>Sign in</a>
+                        <a class="sign-in">Sign in</a>
                     </div>
+                    </form>
                 </div>
             </p>
             
@@ -44,6 +46,6 @@
 
 <?php
 
-    $scripts = LoadScripts([]);
+    $scripts = LoadScripts(['login']);
     include_once 'view/footer.php';
 ?>

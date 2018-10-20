@@ -15,11 +15,15 @@ else {
         case 'register':
             LoadAPI('register');
             break;
-
         case 'login':
             LoadAPI('login');
             break;
-
+        case 'createpost':
+            LoadAPI('createpost');
+            break;
+        case 'createcomment':
+            LoadAPI('createcomment');
+            break;
         default:
             // throw some random error
     }

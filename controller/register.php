@@ -13,10 +13,10 @@ if( ((isset($_SESSION['login']) && $_SESSION['login'] == "LOGIN") ||
 }
 
 try {
-    $username = $_POST['username'] ?? null;
-    $email = $_POST['email'] ?? null;
-    $password = $_POST['password'] ?? null;
-    $confpass = $_POST['confpass'] ?? null;
+    $username = $_POST['username'] ?? false;
+    $email = $_POST['email'] ?? false;
+    $password = $_POST['password'] ?? false;
+    $confpass = $_POST['confpass'] ?? false;
     $confcode = md5($email);
     // $date = date("Y-m-d H:i:s");
     $date = date(DATE_ISO8601);
