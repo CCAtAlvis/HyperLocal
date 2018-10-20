@@ -7,11 +7,18 @@ date_default_timezone_set("Asia/Kolkata");
 // header('Content-Type: application/json');
 $res = [];
 
+$login = $_SESSION["login"] ?? $_COOKIE["login"] ?? false;
+$user_id = $_SESSION["user_id"] ?? $_COOKIE["user_id"] ?? false;
 
-if( ((isset($_SESSION['login']) && $_SESSION['login'] == "LOGIN") ||
-    (isset($_COOKIE['login']) && $_COOKIE['login'] == "LOGIN"))) {
+if ($login === "LOGIN" && $user_id) {
     // some loccation to redirect
-    header("Location: members/dashboard");
+    // header("Location: members/dashboard");
+    // send response to redirect
+    $res["status"]="SUCCESS";
+    $res["message"]="Redirect User";
+
+    $res = json_encode($res);
+    die($res);
 }
 
 // var_dump($_POST);
@@ -30,9 +37,9 @@ try {
     }
 
     if (!filter_var($param, FILTER_VALIDATE_EMAIL)) {
-        $sql = "SELECT password from login where username = :param";
+        $sql = "SELECT password, user_id from login where username = :param";
     } else {
-        $sql = "SELECT password from login where email = :param";
+        $sql = "SELECT password, user_id from login where email = :param";
     }
 
     $query = $conn->prepare($sql);
@@ -56,15 +63,28 @@ try {
         die($resJson);
     }
 
-
     $conn = null;
     
     $res["status"]="SUCCESS";
     $res["message"]="Logging you in";
 
+    // start user session
     $_SESSION["login"] = "LOGIN";
+    $_SESSION['user_id'] = $result["user_id"];
 
-    $_SESSION['user_id'] = $result['id'];
+    // set user cookies
+    $cookie = [];
+    $cookie["time"] =   time() + (60*60*24*30*365);
+
+    // set cookie for login
+    $cookie["name"] = "login";
+    $cookie["value"] = "LOGIN";
+    setcookie($cookie["name"], $cookie["value"], $cookie["time"]);
+
+    // set cookie for user details
+    $cookie["name"] = "user_id";
+    $cookie["value"] = $result["user_id"];
+    setcookie($cookie["name"], $cookie["value"], $cookie["time"]);
 
     $resJson = json_encode($res);
     die($resJson);
@@ -72,7 +92,7 @@ try {
 catch(Exception $e) {
     // echo 'ERROR: ' . $e->getMessage();
     $res["status"]="ERROR";
-    $res["message"]="Something went wrong!";
+    $res["message"]="Something went wrong! ERROR: " . $e->getMessage();
 
     $res = json_encode($res);
     die($res);

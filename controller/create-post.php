@@ -8,7 +8,7 @@ date_default_timezone_set("Asia/Kolkata");
 $res = [];
 
 try {
-    
+
     $question = (string) $_POST['question'] ?? false;
     $latitude = (double) $_POST['latitude'] ?? false;
     $longitude = (double) $_POST['longitude'] ?? false;
