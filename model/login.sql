@@ -1,10 +1,10 @@
-CREATE TABLE `hyperlocal`.`login` ( 
+CREATE TABLE `login` ( 
   `user_id` INT NOT NULL AUTO_INCREMENT,
   `username` VARCHAR(30) NOT NULL,
   `email` VARCHAR(100) NOT NULL,
   `password` CHAR(60) NOT NULL,
   `confcode` CHAR(32) NOT NULL,
-  `created_on` DATETIME NOT NULL,
+  `created_on` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY  (`user_id`),
   UNIQUE  `username` (`username`),
   UNIQUE  `email` (`email`)

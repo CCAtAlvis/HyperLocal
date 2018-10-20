@@ -24,6 +24,10 @@ else {
             LoadAPI('logout');
         break;
 
+        case 'settings':
+            LoadAPI('user-settings');
+        break;
+
         // switching on create APIs
         case 'create':
             switch ($routes[2]) {
