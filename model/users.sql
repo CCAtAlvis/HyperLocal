@@ -9,7 +9,7 @@ CREATE TABLE `users` (
   `created_on` DATETIME DEFAULT CURRENT_TIMESTAMP,
   UNIQUE  `_id` (`user_id`),
 
-  CONSTRAINT `fk_user_id` FOREIGN KEY (`user_id`)
+  CONSTRAINT `fk_user_user_id` FOREIGN KEY (`user_id`)
     REFERENCES `login`(`user_id`)
     ON DELETE SET NULL
     ON UPDATE CASCADE

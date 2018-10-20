@@ -6,9 +6,10 @@ CREATE TABLE `questions` (
   `longitude` double NOT NULL,
   `created_on` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `report_status` BOOLEAN NOT NULL DEFAULT false,
-  PRIMARY KEY (`id`),
+  PRIMARY KEY (`question_id`),
+  INDEX `index_questions_user_id` (`user_id`),
 
-  CONSTRAINT `fk_user_id` FOREIGN KEY (`user_id`)
+  CONSTRAINT `fk_questions_user_id` FOREIGN KEY (`user_id`)
     REFERENCES `login`(`user_id`)
     ON DELETE SET NULL
     ON UPDATE CASCADE
