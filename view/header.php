@@ -51,6 +51,9 @@
             <a data-hover="home" href="./home">home</a>
         </div>
 
+<?php
+    if(login !== 'LOGIN') {
+?>
         <div class="nav-item">
             <a data-hover="about" href="./about">about</a>
         </div>
@@ -62,5 +65,22 @@
         <div class="nav-item ans-button">
             <a data-hover="sign in" href="./sign-in">sign in</a>
         </div>
+<?php
+    } else {
+?>
+        <div class="nav-item">
+            <a data-hover="questions" href="./questions">questions</a>
+        </div>
+
+        <div class="nav-item">
+            <a data-hover="profile" href="./profile">profile</a>
+        </div>
+
+        <div class="nav-item ans-button">
+            <a data-hover="sign out" href="./sign-out">sign out</a>
+        </div>
+<?php
+    }
+?>
     </nav>
 </header>

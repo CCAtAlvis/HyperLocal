@@ -15,27 +15,39 @@ else {
     switch ($routes[0]) {
         case 'index':
             LoadView('home');
-            break;
+        break;
 
         case 'home':
             LoadView('home');
-            break;
+        break;
 
         case 'about':
             LoadView('about');
-            break;
+        break;
 
         case 'sign-up':
             LoadView('register');
-            break;
+        break;
 
         case 'sign-in':
             LoadView('login');
-            break;
+        break;
 
         case 'forgot-password':
             // LoadView('forgot');
-            break;
+        break;
+
+        case 'sign-out':
+            // var_dump($_SESSION);
+
+            $time = time() - (60*60*24*30*365);
+            setcookie("login", "", $time, "/");
+            setcookie("user_id", "", $time, "/");
+
+            session_unset();
+            // var_dump($_SESSION);
+            header("Location: ./home");
+        break;
 
         default:
         // BOOM!

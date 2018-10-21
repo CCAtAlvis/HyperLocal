@@ -1,5 +1,40 @@
 <?php
 
+// set some defining functions
+session_start();
+date_default_timezone_set("Asia/Kolkata");
+
+// check whether the user is already logged in
+// set global define() for login and user_id
+$login = $_SESSION["login"] ?? $_COOKIE["login"] ?? false;
+$user_id = $_SESSION["user_id"] ?? $_COOKIE["user_id"] ?? false;
+if ($login === "LOGIN" && $user_id) {
+    // set global definition
+    define("login", "LOGIN");
+    define("user_id", $user_id);
+
+    // set user session
+    $_SESSION["login"] = login;
+    $_SESSION["user_id"] = user_id;
+
+    // set user cookies
+    $cookie = [];
+    $cookie["time"] = time() + (60*60*24*30*365);
+
+    // set cookie for login
+    $cookie["name"] = "login";
+    $cookie["value"] = "LOGIN";
+    setcookie($cookie["name"], $cookie["value"], $cookie["time"], "/");
+
+    // set cookie for user details
+    $cookie["name"] = "user_id";
+    $cookie["value"] = user_id;
+    setcookie($cookie["name"], $cookie["value"], $cookie["time"], "/");
+} else {
+    define("login", false);
+    define("user_id", false);
+}
+
 spl_autoload_register(function ($class) {
     if(!file_exists($class.".php"))
         die("the class does not exist!");

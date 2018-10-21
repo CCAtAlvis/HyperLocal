@@ -5,11 +5,18 @@ date_default_timezone_set("Asia/Kolkata");
 // header('Content-Type: application/json');
 $res = [];
 
+$login = $_SESSION["login"] ?? $_COOKIE["login"] ?? false;
+$user_id = $_SESSION["user_id"] ?? $_COOKIE["user_id"] ?? false;
 
-if( ((isset($_SESSION['login']) && $_SESSION['login'] == "LOGIN") ||
-    (isset($_COOKIE['login']) && $_COOKIE['login'] == "LOGIN"))) {
+if ($login === "LOGIN" && $user_id) {
     // some loccation to redirect
     // header("Location: members/dashboard");
+    // send response to redirect
+    $res["status"]="SUCCESS";
+    $res["message"]="Redirect User";
+
+    $res = json_encode($res);
+    die($res);
 }
 
 try {

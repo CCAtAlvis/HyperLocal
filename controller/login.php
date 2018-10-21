@@ -1,9 +1,6 @@
 <?php
 
-session_start();
-
 require './controller/db.php';
-date_default_timezone_set("Asia/Kolkata");
 // header('Content-Type: application/json');
 $res = [];
 
@@ -16,6 +13,24 @@ if ($login === "LOGIN" && $user_id) {
     // send response to redirect
     $res["status"]="SUCCESS";
     $res["message"]="Redirect User";
+
+    // set the session for user
+    $_SESSION["login"] = "LOGIN";
+    $_SESSION["user_id"] = $user_id;
+
+    // set cookies
+    $cookie = [];
+    $cookie["time"] =   time() + (60*60*24*30*365);
+
+    // set cookie for login
+    $cookie["name"] = "login";
+    $cookie["value"] = "LOGIN";
+    setcookie($cookie["name"], $cookie["value"], $cookie["time"], "/");
+
+    // set cookie for user details
+    $cookie["name"] = "user_id";
+    $cookie["value"] = $user_id;
+    setcookie($cookie["name"], $cookie["value"], $cookie["time"], "/");
 
     $res = json_encode($res);
     die($res);
@@ -79,12 +94,12 @@ try {
     // set cookie for login
     $cookie["name"] = "login";
     $cookie["value"] = "LOGIN";
-    setcookie($cookie["name"], $cookie["value"], $cookie["time"]);
+    setcookie($cookie["name"], $cookie["value"], $cookie["time"], "/");
 
     // set cookie for user details
     $cookie["name"] = "user_id";
     $cookie["value"] = $result["user_id"];
-    setcookie($cookie["name"], $cookie["value"], $cookie["time"]);
+    setcookie($cookie["name"], $cookie["value"], $cookie["time"], "/");
 
     $resJson = json_encode($res);
     die($resJson);
