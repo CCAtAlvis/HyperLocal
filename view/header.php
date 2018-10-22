@@ -1,6 +1,5 @@
 <?php 
     $title .= " | HyperLocal";
-
 ?>
 
 <!DOCTYPE html>
@@ -52,7 +51,7 @@
         </div>
 
 <?php
-    if(login !== 'LOGIN') {
+    if($login !== "LOGIN" || !$user_id) {
 ?>
         <div class="nav-item">
             <a data-hover="about" href="./about">about</a>

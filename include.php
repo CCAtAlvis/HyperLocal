@@ -8,14 +8,24 @@ date_default_timezone_set("Asia/Kolkata");
 // set global define() for login and user_id
 $login = $_SESSION["login"] ?? $_COOKIE["login"] ?? false;
 $user_id = $_SESSION["user_id"] ?? $_COOKIE["user_id"] ?? false;
-if ($login === "LOGIN" && $user_id) {
-    // set global definition
-    define("login", "LOGIN");
-    define("user_id", $user_id);
 
-    // set user session
-    $_SESSION["login"] = login;
-    $_SESSION["user_id"] = user_id;
+if ($login === "LOGIN" && $user_id) {
+    // set user login
+    SetUserLogin($user_id);
+}
+
+spl_autoload_register(function ($class) {
+    if(!file_exists($class.".php"))
+        die("the class does not exist!");
+
+    include $class . '.php';
+});
+
+// universal function to login user
+function SetUserLogin(string $_id)
+{
+    $_SESSION["login"] = "LOGIN";
+    $_SESSION["user_id"] = $_id;
 
     // set user cookies
     $cookie = [];
@@ -28,27 +38,19 @@ if ($login === "LOGIN" && $user_id) {
 
     // set cookie for user details
     $cookie["name"] = "user_id";
-    $cookie["value"] = user_id;
+    $cookie["value"] = $_id;
     setcookie($cookie["name"], $cookie["value"], $cookie["time"], "/");
-} else {
-    define("login", false);
-    define("user_id", false);
 }
-
-spl_autoload_register(function ($class) {
-    if(!file_exists($class.".php"))
-        die("the class does not exist!");
-
-    include $class . '.php';
-});
 
 // pass in the name of view to load, 
 // name must be same as that of the generated view without extension
 function LoadView(string $view)
 {
+    global $login;
+    global $user_id;
     $loadView = 'view/generated/'.$view.'.php';
     if (is_file($loadView)) {
-        include $loadView;
+        include_once $loadView;
     } else {
         die("View not found $loadView");
         // show 404 here
@@ -61,7 +63,7 @@ function LoadAPI(string $API)
 {
     $loadAPI = 'controller/'.$API.'.php';
     if (is_file($loadAPI)) {
-        include $loadAPI;
+        include_once $loadAPI;
     } else {
         die("API not found $loadAPI");
         // show 404 here

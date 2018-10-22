@@ -1,8 +1,8 @@
 <?php
-    $title = 'Login';
+    $title = "Login";
 
     $styling = LoadStyling(['main', 'cards', 'login']);
-    include_once 'view/header.php';
+    include_once "view/header.php";
 ?>
 
 <div id="body">
@@ -10,7 +10,7 @@
         <h1 class="heading">Sign in.</h1>
         <h2 class="heading-2">Doors to magic of community opens here!</h2>
     </div>
-    
+
     <div class="right-panel panels-2">
         <div class="card">
             <p class="question">
@@ -31,7 +31,7 @@
                     </form>
                 </div>
             </p>
-            
+
             <div class="bottom-bar">
                 <div> <a class="location underlink-link" href="./forgot-password">Forgot password ?</a> </div>
 
