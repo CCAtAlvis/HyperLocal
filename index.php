@@ -37,6 +37,10 @@ else {
             // LoadView('forgot');
         break;
 
+        case 'questions':
+            LoadView('questions');
+        break;
+
         case 'sign-out':
             // var_dump($_SESSION);
 

@@ -1,4 +1,7 @@
 <?php
+    if($login === "LOGIN" && $user_id)
+        header("Location: ./questions");
+
     $title = "Login";
 
     $styling = LoadStyling(['main', 'cards', 'login']);
