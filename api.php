@@ -32,7 +32,7 @@ else {
         case 'create':
             switch ($routes[2]) {
                 case 'post':
-                    LoadAPI('create-post');
+                    LoadAPI('create.post');
                 break;
                 
                 case 'comment':

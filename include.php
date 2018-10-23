@@ -61,6 +61,8 @@ function LoadView(string $view)
 // name must be same as that of the API without extension
 function LoadAPI(string $API)
 {
+    global $login;
+    global $user_id;
     $loadAPI = 'controller/'.$API.'.php';
     if (is_file($loadAPI)) {
         include_once $loadAPI;

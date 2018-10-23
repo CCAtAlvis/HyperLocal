@@ -1,12 +1,8 @@
 <?php
 
-session_start();
-
-require './db.php';
-date_default_timezone_set("Asia/Kolkata");
+require './controller/db.php';
 // header('Content-Type: application/json');
 $res = [];
-
 try {
 
     $question = (string) $_POST['question'] ?? false;
@@ -34,11 +30,10 @@ try {
     $query->bindParam(':question', $question);
     $query->bindParam(':latitude', $latitude);
     $query->bindParam(':longitude', $longitude);
-    $query->bindParam(':user_id', $_SESSION['user_id'] ?? 1231231231);
-    $query->execute();
-    $result = $query->fetch(PDO::FETCH_ASSOC);
+    $query->bindParam(':user_id', $user_id);
+    $result = $query->execute();
 
-    if($result) {
+    if(!$result) {
         $res["status"]="ERROR";
         $res["message"]="Could not insert question.";
 
@@ -53,7 +48,7 @@ try {
 
 } catch(Exception $e) {
     $res["status"]="ERROR";
-    $res["message"]="Something went wrong! " + $e->getMessage();
+    $res["message"]="Something went wrong! ".$e->getMessage();
     $res = json_encode($res);
     die($res);
 }
