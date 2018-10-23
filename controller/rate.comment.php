@@ -1,7 +1,6 @@
 <?php
 
 require './controller/db.php';
-date_default_timezone_set("Asia/Kolkata");
 // header('Content-Type: application/json');
 $res = [];
 

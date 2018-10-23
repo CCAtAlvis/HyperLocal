@@ -1,9 +1,8 @@
 <?php
 
-session_start();
+// session_start();
 
 require './controller/db.php';
-date_default_timezone_set("Asia/Kolkata");
 // header('Content-Type: application/json');
 $res = [];
 
@@ -49,7 +48,7 @@ try {
 
 } catch(Exception $e) {
     $res["status"]="ERROR";
-    $res["message"]="Something went wrong! " + $e->getMessage();
+    $res["message"]="Something went wrong! " . $e->getMessage();
     $res = json_encode($res);
     die($res);
 }
