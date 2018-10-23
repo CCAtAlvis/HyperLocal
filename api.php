@@ -31,12 +31,12 @@ else {
         // switching on create APIs
         case 'create':
             switch ($routes[2]) {
-                case 'post':
-                    LoadAPI('create.post');
+                case 'question':
+                    LoadAPI('create.question');
                 break;
                 
                 case 'comment':
-                    LoadAPI('create-comment');
+                    LoadAPI('create.comment');
                 break;
 
                 default:
@@ -44,6 +44,21 @@ else {
             }
         break;
 
+        // switching on fetching APIs
+        case 'fetch':
+            switch($routes[2]) {
+                case 'question':
+                    LoadAPI('fetch.question');
+                break;
+                
+                case 'comment':
+                    LoadAPI('fetch.comment');
+                break;
+
+                default:
+                    // throw some error
+            }
+            break;
         // switch on reporting action
         case 'report':
             switch ($routes[2]) {
@@ -68,15 +83,15 @@ else {
         case 'rate':
             switch($routes[2]) {
                 case 'user':
-                    LoadAPI('rate-user');
+                    LoadAPI('rate.user');
                 break;
 
-                case 'post':
-                    LoadAPI('rate-post');
+                case 'question':
+                    LoadAPI('rate.question');
                 break;
 
                 case 'comment':
-                    LoadAPI('rate-comment');
+                    LoadAPI('rate.comment');
                 break;
 
                 default:
