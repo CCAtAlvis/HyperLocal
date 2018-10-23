@@ -18,7 +18,7 @@
 
                 <div class="feed-filter">
                     <input type="radio" name="filter-selector" checked> Near
-                    <input type="radio" name="filter-selector"> Tranding
+                    <input type="radio" name="filter-selector"> Trending
                     <input type="radio" name="filter-selector"> Top
                 </div>
             </div>
