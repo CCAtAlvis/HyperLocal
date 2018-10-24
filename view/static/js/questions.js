@@ -1,4 +1,16 @@
-function success (data) {
+function nearby_questions_success (data) {
+  console.log("Success : " + data);
+}
+
+function trending_questions_success (data) {
+  console.log("Success : " + data);
+}
+
+function top_questions_success(data) {
+  console.log("Success : " + data);
+}
+
+function questions_error (data) {
 
 }
 
@@ -17,6 +29,21 @@ $('body').keypress(e=> {
     $('.hidden').fadeOut();
   }
 });
+
+// nearby
+if(navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    var lat = position.coords.latitude;
+    var long = position.coords.longitude;
+    $.ajax({
+      type: 'POST',
+      url: './api/fetch/question/nearby',
+      data: `latitude=${lat}&longitude=${long}`,
+      success: nearby_questions_success,
+      error: questions_error
+    });
+  });
+}
 
 
 // TODO:

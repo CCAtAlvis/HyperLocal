@@ -5,11 +5,10 @@ require './controller/db.php';
 $res = [];
 
 try {
-    // TODO, get lat and lng bounds
-    // Make a query that finds posts within these bounds
-    // Umm, that's it ?
-    // For now, I'm pulling all posts
-    $query = $conn->prepare("SELECT * FROM questions");
+
+    $query = $conn->prepare("SELECT * FROM questions
+    WHERE created_on >= NOW() - INTERVAL 1 DAY");
+    
     $query->execute();
 
     $questions = array();

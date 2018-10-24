@@ -48,7 +48,19 @@ else {
         case 'fetch':
             switch($routes[2]) {
                 case 'question':
-                    LoadAPI('fetch.question');
+                    switch($routes[3]) {
+                        case 'nearby':
+                            LoadAPI('fetch.question.nearby');
+                        break;
+                        case 'trending':
+                            LoadAPI('fetch.question.trending');
+                        break;
+                        case 'top':
+                            LoadAPI('fetch.question.top');
+                        break;
+                        default:
+                        // throw some error    
+                    }
                 break;
                 
                 case 'comment':
