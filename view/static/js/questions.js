@@ -1,6 +1,8 @@
 let nearbyHtml = "";
 let trendingHtml = "";
 let topHtml = "";
+let feedBody = document.getElementById('feed-body-div');
+let commentsBody = document.getElementById('comments-div');
 
 function questions_success (data) {
   console.log("Success : " + data);
@@ -8,11 +10,27 @@ function questions_success (data) {
 
   if (data.status != 'SUCCESS') return;
 
-  for(i = 0; i < data.message.length; i++) {
+  for(i = 0; i < data.message.length; i++)
     nearbyHtml += `<div class="feed-element" data-question-id="${i}">` + data.message[i].question + `</div>`;
-  }
 
-  $('feed-body-div').innerHtml = nearbyHtml;
+  feedBody.innerHTML = nearbyHtml;
+
+  $('.feed-element').click(function(e) {
+    console.log($(this).attr('data-question-id'));
+  
+    $.ajax({
+      type: 'POST',
+      url: './api/fetch/comment',
+      data: "question_id=" + $(this).attr('data-question-id'),
+      success: comments_success,
+      error: comments_error
+    });
+  
+    $(".load-question").fadeIn();
+    $(".load-question-body .question").text($(this).text())
+  
+  });
+    
 }
 
 
@@ -21,7 +39,19 @@ function questions_error (data) {
 }
 
 function comments_success(data) {
+  console.log("SuccessComments: " + data);
+  data = JSON.parse(data);
 
+  if(data.status != 'SUCCESS') return;
+
+  commentHtml = "";
+
+  commentsBody.innerHTML = commentHtml;
+
+  for(i = 0; i < data.message.length; i++)
+    commentHtml += '<div class="comment-element">' + data.message[i].comment + '</div>';
+
+  commentsBody.innerHTML = commentHtml;
 }
 
 function comments_error(data) {
@@ -68,47 +98,9 @@ $('input[name=filter-selector]').click(function(e) {
   }
 });
 
-$('.feed-element').click(function(e) {
-  console.log($(this).attr('data-question-id'));
-  // this.attr('data-question-id')
-  // ajax here
-
-  $.ajax({
-    type: 'POST',
-    url: './api/fetch/comments',
-    data: `question_id=$(this).attr('data-question-id')`,
-    success: comments_success,
-    error: comments_error
-  });
-
-  $(".load-question").fadeIn();
-  $(".load-question-body .question").text($(this).text())
-
-});
-
 $('body').keypress(e=> {
   console.log(e.originalEvent.charCode);
   if(e.originalEvent.charCode === 0) {
     $('.hidden').fadeOut();
   }
 });
-
-
-// TODO:
-// fetch questions and display them in feed body
-// get lat, long from this JS function
-// https://www.w3schools.com/html/html5_geolocation.asp
-
-// TODO:
-// $('.feed-element').click() open ups the feed question,
-// fetch comments for that question and display them
-
-// console.log($(this).attr('data-question-id'));
-// in this line: "data-question-id" is a special html attribute
-// ie any attribute starting with "data-" is considered a valid attribute,
-// store the question-id, comment-id in these attributes...
-// so you can pass those as in API requests
-
-
-// TODOs for API routing:
-// add routing for fetching questions according to catogries

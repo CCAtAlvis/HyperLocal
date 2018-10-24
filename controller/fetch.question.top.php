@@ -6,9 +6,9 @@ $res = [];
 
 try {
     $query = $conn->prepare("SELECT * FROM questions
-    WHERE id IN (
-        SELECT id FROM `rating.question`
-        ORDER BY id DESC
+    WHERE question_id IN (
+        SELECT question_id FROM `rating.question`
+        ORDER BY question_id DESC
     )");
     
     $query->execute();

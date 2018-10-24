@@ -49,7 +49,7 @@
 <div class="load-question hidden">
     <div class="load-question-body card">
         <div class="question">asdasd</div>
-        <div class="comments">
+        <div class="comments" id="comments-div">
             <div class="comment-element">some comment</div>
             <div class="comment-element">some comment</div>
             <div class="comment-element">some comment</div>
