@@ -17,13 +17,13 @@
                 <div class="feed-heading">Questions</div>
 
                 <div class="feed-filter">
-                    <input type="radio" name="filter-selector" checked> Near
-                    <input type="radio" name="filter-selector"> Trending
-                    <input type="radio" name="filter-selector"> Top
+                    <input type="radio" name="filter-selector" value="Near" checked> Near
+                    <input type="radio" name="filter-selector" value="Trending"> Trending
+                    <input type="radio" name="filter-selector" value="Top"> Top
                 </div>
             </div>
 
-            <div class="feed-body">
+            <div class="feed-body" id="feed-body-div">
                 <div class="feed-element" data-question-id="1">
                     this is a simple questionkb bngdfgdfjggndgjkngdgjndfgldjkflndfkgnlgnsdlkgnsdkl
                 </div>

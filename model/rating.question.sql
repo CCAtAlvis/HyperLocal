@@ -18,3 +18,11 @@ CREATE TABLE `rating.question` (
     ON DELETE SET NULL
     ON UPDATE CASCADE
 ) ENGINE=InnoDB;
+
+DELIMITER $$
+CREATE OR REPLACE TRIGGER `insert_default_rating`
+AFTER INSERT ON `questions`
+FOR EACH ROW BEGIN
+  INSERT INTO `rating.question` (rating, question_id, creator_id) VALUES(0, NEW.question_id, NEW.user_id);
+END$$
+DELIMITER ;

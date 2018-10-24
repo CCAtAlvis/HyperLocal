@@ -9,7 +9,6 @@ try {
     WHERE id IN (
         SELECT id FROM `rating.question`
         ORDER BY id DESC
-        LIMIT 10
     )");
     
     $query->execute();
