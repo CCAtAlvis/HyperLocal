@@ -76,7 +76,9 @@
 <div class="create-question">+</div>
 <div class="question-form hidden">
     <div class="card">
-    <form>
+    <form id="create-question-form" onsubmit="create_question(event, this)">
+        <input type="hidden" id="question-form-lat" name="latitude" value="">
+        <input type="hidden" id="question-form-long" name="longitude" value="">
         <input type="text" name="question">
         <input type="submit">
     </form>

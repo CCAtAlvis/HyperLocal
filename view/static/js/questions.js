@@ -24,7 +24,7 @@ $('.feed-element').click(function(e) {
 });
 
 $('body').keypress(e=> {
-  console.log(e.originalEvent.charCode);
+  // console.log(e.originalEvent.charCode);
   if(e.originalEvent.charCode === 0) {
     $('.hidden').fadeOut();
   }
@@ -64,3 +64,49 @@ if(navigator.geolocation) {
 
 // TODOs for API routing:
 // add routing for fetching questions according to catogries
+
+
+
+
+
+$(document).ready(function() {
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var lat = position.coords.latitude;
+      var long = position.coords.longitude;
+      
+      $('#question-form-lat').attr('value', lat);
+      $('#question-form-long').attr('value', long);
+    });
+  } else {
+    alert('problem')
+  }
+
+  $('.create-question').click(function() {
+    $('.question-form').fadeIn();
+  });
+});
+
+
+function create_question (e) {
+  e.preventDefault();
+  $.ajax({
+    type: 'POST',
+    url: './api/create/question',
+    data: $("#create-question-form").serialize() ,
+    success: nearby_questions_success,
+    error: questions_error
+  });
+}
+
+function create_comment (e) {
+  e.preventDefault();
+  $.ajax({
+    type: 'POST',
+    url: './api/create/comment',
+    data: $("#create-question-form").serialize() ,
+    success: nearby_questions_success,
+    error: questions_error
+  });
+}
+

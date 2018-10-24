@@ -39,9 +39,9 @@ header {
     max-width: 0;
 	color: aqua;
 	content: attr(data-hover);
-	-webkit-transition: max-width 0.5s;
-	-moz-transition: max-width 0.5s;
-	transition: max-width 0.5s;
+	-webkit-transition: max-width 0.2s;
+	-moz-transition: max-width 0.2s;
+	transition: max-width 0.2s;
 	white-space: nowrap;
 }
 
@@ -58,7 +58,7 @@ header {
     border-radius: 40px;
     font-family: 'Amatic SC';
 
-    transition: all 0.2s linear;
+    transition: all 0.1s linear;
 }
 
 #navbar .ans-button a:hover {
