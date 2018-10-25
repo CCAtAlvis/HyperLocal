@@ -87,8 +87,12 @@
     font-size: 30px;
     font-family: 'roboto';
     padding: 10px 0;
-    border-bottom: 2px solid #333;
     word-wrap: break-word
+}
+
+.load-question #question-poster {
+    border-bottom: 2px solid #333;
+
 }
 
 .load-question-body .comments .comment-element {

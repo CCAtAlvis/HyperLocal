@@ -5,10 +5,12 @@ require './controller/db.php';
 $res = [];
 
 try {
-    $query = $conn->prepare("SELECT * FROM questions
-    WHERE question_id IN (
-        SELECT question_id FROM `rating.question`
-        ORDER BY question_id DESC
+    $query = $conn->prepare("SELECT q.question, q.question_id, q.created_on, l.username
+    FROM questions as q, login as l
+    WHERE q.user_id = l.user_id And
+    question_id IN (
+        SELECT question_id FROM `rating.question` GROUP BY (question_id)
+        ORDER BY avg(rating) DESC
     )");
     
     $query->execute();

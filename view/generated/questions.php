@@ -24,7 +24,7 @@
             </div>
 
             <div class="feed-body" id="feed-body-div">
-                <div class="feed-element" data-question-id="1">
+                <div class="feed-element" onclick="feed_click(this)" data-question-id="1">
                     this is a simple questionkb bngdfgdfjggndgjkngdgjndfgldjkflndfkgnlgnsdlkgnsdkl
                 </div>
                 <div class="feed-element">
@@ -48,7 +48,12 @@
 
 <div class="load-question hidden">
     <div class="load-question-body card">
-        <div class="question">asdasd</div>
+        <div class="question">
+            asdasd
+        </div>
+        <div id="question-poster"> </div>
+        <div id="question-rating"> </div>
+
         <div class="comments" id="comments-div">
             <div class="comment-element">some comment</div>
             <div class="comment-element">some comment</div>
@@ -64,9 +69,10 @@
             <div class="comment-element">some comment</div>
             <div class="comment-element">some comment</div>
         </div>
-        <div class="add-comment">
-            <form>
-                <input type="text" maxlength="100">
+        <div class="form-add-comment">
+            <form class="form" id="insert-comment-form" onsubmit="create_comment(event)">
+                <input type="hidden" name="question_id" value="">
+                <input type="text" id="question-comment" name="comment" maxlength="100">
                 <input type="submit">
             </form>
         </div>
@@ -76,7 +82,7 @@
 <div class="create-question">+</div>
 <div class="question-form hidden">
     <div class="card">
-    <form id="create-question-form" onsubmit="create_question(event, this)">
+    <form id="create-question-form" onsubmit="create_question(event)">
         <input type="hidden" id="question-form-lat" name="latitude" value="">
         <input type="hidden" id="question-form-long" name="longitude" value="">
         <input type="text" name="question">
