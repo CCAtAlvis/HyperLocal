@@ -95,8 +95,14 @@
     line-height: 3em;
 }
 
+.load-question .comment-poster {
+    font-size: 14px;
+    margin-top: 15px; 
+}
+
 .load-question-body .comments .comment-element {
     padding: 15px;
+    padding-bottom: 10px;
     border-bottom: 1px solid #333;
     cursor: pointer;
     transition: all 0.1s linear;

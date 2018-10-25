@@ -3,7 +3,7 @@ let feedBody = document.getElementById('feed-body-div');
 let commentsBody = document.getElementById('comments-div');
 
 function questions_success (data) {
-  console.log("Questions: " + data);
+  // console.log("Questions: " + data);
   data = JSON.parse(data);
   nearbyHtml = "";
 
@@ -33,7 +33,9 @@ function comments_success(data) {
   commentsBody.innerHTML = commentHtml;
 
   for(i = 0; i < data.message.length; i++)
-    commentHtml += '<div class="comment-element">' + data.message[i].comment + '</div>';
+    commentHtml += `<div class="comment-element">${data.message[i].comment}
+    <div class="comment-poster"><i>By</i>: ${data.message[i].username} &nbsp; &nbsp;| &nbsp; &nbsp; ${data.message[i].created_on} </div>
+    </div>`;
 
   commentsBody.innerHTML = commentHtml;
 }
@@ -138,7 +140,10 @@ function create_question (e) {
 }
 
 function insert_questions_success(data) {
-  console.log(data);
+  // console.log(data);
+  data = JSON.parse(data);
+  if(data.status != 'SUCCESS') return;
+
   document.getElementById("create-question-form").reset();
   $(".hidden").fadeOut();
   window.location = "./questions"
@@ -156,7 +161,10 @@ function create_comment (e) {
 }
 
 function insert_comment_success(data) {
-  console.log(data);
+  // console.log(data);
+  data = JSON.parse(data);
+  if(data.status != 'SUCCESS') return;
+
   var comment = document.getElementById("question-comment").value;
   document.getElementById("insert-comment-form").reset();
 
