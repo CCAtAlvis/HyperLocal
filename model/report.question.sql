@@ -18,3 +18,15 @@ CREATE TABLE `report.question` (
     ON DELETE SET NULL
     ON UPDATE CASCADE
 ) ENGINE=InnoDB;
+
+DELIMITER $$
+CREATE OR REPLACE TRIGGER `remove_post_on_threshold`
+AFTER INSERT ON `report.question`
+FOR EACH ROW BEGIN
+  DECLARE report_count INT;
+  SET report_count = (SELECT COUNT(*) FROM `report.question` WHERE question_id = NEW.question_id);
+  IF report_count > 5 THEN
+    DELETE FROM `questions` WHERE question_id = NEW.question_id;
+  END IF; 
+END$$
+DELIMITER ;

@@ -48,32 +48,18 @@
 
 <div class="load-question hidden">
     <div class="load-question-body card">
-        <div class="question">
-            asdasd
-        </div>
-        <div id="question-poster"> </div>
-        <div id="question-rating"> </div>
-
+        <div class="question">Sample Question</div>
         <div class="comments" id="comments-div">
             <div class="comment-element">some comment</div>
             <div class="comment-element">some comment</div>
             <div class="comment-element">some comment</div>
             <div class="comment-element">some comment</div>
             <div class="comment-element">some comment</div>
-            <div class="comment-element">some comment</div>
-            <div class="comment-element">some comment</div>
-            <div class="comment-element">some comment</div>
-            <div class="comment-element">some comment</div>
-            <div class="comment-element">some comment</div>
-            <div class="comment-element">some comment</div>
-            <div class="comment-element">some comment</div>
-            <div class="comment-element">some comment</div>
         </div>
-        <div class="form-add-comment">
-            <form class="form" id="insert-comment-form" onsubmit="create_comment(event)">
-                <input type="hidden" name="question_id" value="">
-                <input type="text" id="question-comment" name="comment" maxlength="100">
-                <input type="submit">
+        <div>
+            <form class="add-comment">
+                <input type="text" maxlength="100" class="comment-input">
+                <input type="submit" value="Comment">
             </form>
         </div>
     </div>
