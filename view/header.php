@@ -54,10 +54,6 @@
     if($login !== "LOGIN" || !$user_id) {
 ?>
         <div class="nav-item">
-            <a data-hover="about" href="./about">about</a>
-        </div>
-
-        <div class="nav-item">
             <a data-hover="sign up" href="./sign-up">sign up</a>
         </div>
 
@@ -69,10 +65,6 @@
 ?>
         <div class="nav-item">
             <a data-hover="questions" href="./questions">questions</a>
-        </div>
-
-        <div class="nav-item">
-            <a data-hover="profile" href="./profile">profile</a>
         </div>
 
         <div class="nav-item ans-button">

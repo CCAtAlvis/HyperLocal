@@ -10,7 +10,7 @@ body {
     font-family: 'Roboto';
 }
 
-a { text-decoration: none; }
+a { text-decoration: none; cursor: pointer; }
 
 .underlink-link { color: gray; transition: all 0.1s linear; }
 .underlink-link:hover { color: blue; text-decoration: underline; }
