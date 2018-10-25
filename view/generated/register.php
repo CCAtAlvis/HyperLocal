@@ -18,6 +18,7 @@
         <div class="card">
             <p class="question">
                 <form class="form">
+                    <div class="error"></div>
                     <div class="input">
                         <input type="text" name="username" placeholder="Username">
                     </div>
