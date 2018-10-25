@@ -23,3 +23,10 @@ a { text-decoration: none; cursor: pointer; }
 .font-heading { font-family: 'Old Standard TT' !important; }
 .font-heading-2 { font-family: 'Vidaloka' !important; }
 .font-para { font-family: 'Roboto' !important; }
+
+.error {
+    display: none;
+    border: 1px solid #F66;
+    padding: 20px 10px;
+    border-radius: 20px;
+}

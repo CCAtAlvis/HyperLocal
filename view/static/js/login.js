@@ -5,13 +5,14 @@ const error = function(data, textStatus, xhr) {
 }
 
 const success = function(data, textStatus, xhr) {
-    console.log(data);
-    var res = JSON.parse(data);
-    if (res.status === 'SUCCESS') {
-      location.reload();
-    } else {
-
-    }
+  console.log(data);
+  var res = JSON.parse(data);
+  if (res.status === 'SUCCESS') {
+    location.reload();
+  } else {
+    $(".error").fadeIn();
+    $(".error").text(res.message);
+  }
 }
 
 $('.sign-in').click(() => {

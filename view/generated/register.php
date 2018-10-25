@@ -19,7 +19,7 @@
             <p class="question">
                 <form class="form">
                     <div class="input">
-                        <input type="text" name="username" placeholder="Name">
+                        <input type="text" name="username" placeholder="Username">
                     </div>
                     <div class="input">
                         <input type="email" name="email" placeholder="Email">

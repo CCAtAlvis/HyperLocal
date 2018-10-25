@@ -5,8 +5,12 @@ const error = function() {
 }
 
 const success = function(data, textStatus, xhr) {
-    console.log(data);
-    var json = JSON.parse(data);
+  if (res.status === 'SUCCESS') {
+    location.reload();
+  } else {
+    $(".error").fadeIn();
+    $(".error").text(res.message);
+  }
 }
 
 $('.sign-up').click(() => {
