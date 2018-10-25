@@ -1,6 +1,4 @@
-let nearbyHtml = "";
-let trendingHtml = "";
-let topHtml = "";
+let questionsHtml = "";
 let feedBody = document.getElementById('feed-body-div');
 let commentsBody = document.getElementById('comments-div');
 
@@ -8,12 +6,13 @@ function questions_success (data) {
   console.log("Success : " + data);
   data = JSON.parse(data);
 
+  console.log("questions : " + questionsHtml);
   if (data.status != 'SUCCESS') return;
 
   for(i = 0; i < data.message.length; i++)
-    nearbyHtml += `<div class="feed-element" data-question-id="${i}">` + data.message[i].question + `</div>`;
+    questionsHtml += `<div class="feed-element" data-question-id="${i}">` + data.message[i].question + `</div>`;
 
-  feedBody.innerHTML = nearbyHtml;
+  feedBody.innerHTML = questionsHtml;
 
   $('.feed-element').click(function(e) {
     console.log($(this).attr('data-question-id'));
@@ -61,6 +60,7 @@ function comments_error(data) {
 $('input[name=filter-selector]').click(function(e) {
   var category = document.querySelector('input[name="filter-selector"]:checked').value;
   console.log('category ' + category);
+  questionsHtml = "";
   switch (category) {
     case 'Near':
       if(navigator.geolocation) {
