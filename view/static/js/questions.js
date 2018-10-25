@@ -1,6 +1,4 @@
-let nearbyHtml = "";
-let trendingHtml = "";
-let topHtml = "";
+let questionsHtml = "";
 let feedBody = document.getElementById('feed-body-div');
 let commentsBody = document.getElementById('comments-div');
 
@@ -118,6 +116,7 @@ function feed_click(_this) {
   });
 
   $(".load-question").fadeIn();
+  $("#comments-div").text('');
   $(".load-question-body .question").text(_this.innerHTML);
   $(".load-question-body #question-poster").text(question_poster);
   $(".form-add-comment input[name=question_id]").attr('value', question_id);
