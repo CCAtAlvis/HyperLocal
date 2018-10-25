@@ -53,10 +53,9 @@
         <div id="question-options">
             <form id="rate-question" onsubmit="rate_question(event)">
                 <input type="hidden" name="create_id" value=""> 
-                <input type="number" min="1" max="5" value="1" >
+                <input type="number" name="rating" min="1" max="5" value="1" >
                 <input type="submit" value="rate">
-            </form>
-            
+            </form>            
         </div>
 
         <div class="comments" id="comments-div">

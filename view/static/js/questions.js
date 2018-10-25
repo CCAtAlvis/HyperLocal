@@ -147,6 +147,13 @@ function feed_click(_this) {
     ${question_poster} &nbsp; &nbsp;| &nbsp; &nbsp; ${question_time} &nbsp; &nbsp;| &nbsp; &nbsp;
     <a id="report-question" data-question-id="${question_id}" onclick="report_question(this)">
     Report</a>`);
+  $('.load-question-body #question-options').html(`
+    <form id="rate-question" onsubmit="rate_question(event)">
+      <input type="hidden" name="question_id" value="${question_id}"> 
+      <input type="number" name="rating" min="1" max="5" value="1" >
+      <input type="submit" value="rate">
+    </form>
+  `);
  
   $("#insert-comment-form input[name=question_id]").attr('value', question_id);
 }
@@ -223,3 +230,22 @@ function report_question_success(data) {
 
   if (data.status != 'SUCCESS') return;
 }
+
+
+
+function rate_question(e) {
+  e.preventDefault();
+  console.log($("#rate-question").serialize());
+  $.ajax({
+    type: 'POST',
+    url: './api/rate/question',
+    data: $("#rate-question").serialize(),
+    success: rate_question_success,
+    error: questions_error
+  });
+}
+
+function rate_question_success(data) {
+  console.log(data);
+}
+
