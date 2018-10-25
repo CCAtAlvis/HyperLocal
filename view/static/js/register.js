@@ -5,6 +5,8 @@ const error = function() {
 }
 
 const success = function(data, textStatus, xhr) {
+  console.log(data);
+  var res = JSON.parse(data);
   if (res.status === 'SUCCESS') {
     location.reload();
   } else {
