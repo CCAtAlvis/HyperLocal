@@ -214,7 +214,7 @@ $('body').keypress(e=> {
 
 function report_question(_this) {
   var question_id = _this.getAttribute('data-question-id');
-  // console.log(question_id);
+  console.log(question_id);
   $.ajax({
     type: 'POST',
     url: './api/report/question',

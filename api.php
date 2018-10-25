@@ -75,15 +75,15 @@ else {
         case 'report':
             switch ($routes[2]) {
                 case 'user':
-                    LoadAPI('report-user');
+                    LoadAPI('report.user');
                 break;
 
-                case 'post':
-                    LoadAPI('report-post');
+                case 'question':
+                    LoadAPI('report.question');
                 break;
 
                 case 'comment':
-                    LoadAPI('report-comment');
+                    LoadAPI('report.comment');
                 break;
 
                 default:
