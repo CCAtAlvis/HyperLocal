@@ -151,7 +151,7 @@ function feed_click(_this) {
     <form id="rate-question" onsubmit="rate_question(event)">
       <input type="hidden" name="question_id" value="${question_id}"> 
       <input type="number" name="rating" min="1" max="5" value="1" >
-      <input type="submit" value="rate">
+      <input type="submit" value="Rate">
     </form>
   `);
  

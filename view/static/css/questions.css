@@ -137,3 +137,48 @@ input[type=number] {
     border-radius: 50px;
     cursor: pointer;
 }
+
+.question-form textarea {
+    width: 80%;
+    resize: vertical;
+    min-height: 300px;
+    padding: 10px;
+    border: 0;
+}
+
+ input {
+    border: 0;
+    border-bottom: 2px solid #00000023;
+    background: transparent;
+    margin: 10px;
+    padding: 3px 7px;
+    line-height: 35px;
+    font-size: 20px;
+
+    transition: all 0.1s linear;
+}
+input:hover { border-color: #0972b462; }
+input:focus { border-color: #0972b4; }
+
+input[type=submit] {
+    border: 2px solid #00000023;
+    padding: 10px 20px;
+}
+input[type=submit]:hover { border-color: #0972b462; background-color: #0972b462;  }
+input[type=submit]:focus { border-color: #0972b4; background-color: #0972b462; }
+
+textarea {
+    border: 0;
+    border-bottom: 2px solid #00000023;
+    margin: 10px;
+    padding: 3px 7px;
+    line-height: 35px;
+    font-size: 20px;
+
+    transition: all 0.1s linear;
+    font-family: 'Roboto';
+}
+textarea:hover { border-color: #0972b462; }
+textarea:focus { border-color: #0972b4; }
+
+

@@ -17,7 +17,7 @@
             <p class="question">Where can i eat awesome pizzzza?</p>
             <div class="bottom-bar">
                 <div class="location">Nerul &bull; 2km </div>
-                <div class="ans-button"><a>Answer <span calss="arrow">-></span></a></div>
+                <!-- <div class="ans-button"><a>Answer <span calss="arrow">-></span></a></div> -->
             </div>
         </div>
     </div>

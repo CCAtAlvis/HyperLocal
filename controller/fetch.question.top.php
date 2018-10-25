@@ -11,7 +11,7 @@ try {
     question_id IN (
         SELECT question_id FROM `rating.question` GROUP BY (question_id)
         ORDER BY avg(rating) DESC
-    )");
+    ) LIMIT 10");
     
     $query->execute();
 

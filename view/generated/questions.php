@@ -81,7 +81,7 @@
         <form id="create-question-form" onsubmit="create_question(event)">
             <input type="hidden" id="question-form-lat" name="latitude" value="">
             <input type="hidden" id="question-form-long" name="longitude" value="">
-            <input type="text" name="question">
+            <textarea name="question" placeholder="Ask your question"></textarea>
             <input type="submit" value="Ask Question">
         </form>
     </div>
