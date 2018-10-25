@@ -17,9 +17,9 @@
                 <div class="feed-heading">Questions</div>
 
                 <div class="feed-filter">
-                    <input type="radio" name="filter-selector" value="Near" checked> Near
-                    <input type="radio" name="filter-selector" value="Trending"> Trending
-                    <input type="radio" name="filter-selector" value="Top"> Top
+                    <input type="radio" name="filter-selector" value="Near" checked> Near &nbsp; &nbsp; &nbsp;
+                    <input type="radio" name="filter-selector" value="Top"> Top &nbsp; &nbsp; &nbsp;
+                    <input type="radio" name="filter-selector" value="Trending"> New
                 </div>
             </div>
 

@@ -92,7 +92,7 @@
 
 .load-question #question-poster {
     border-bottom: 2px solid #333;
-
+    line-height: 3em;
 }
 
 .load-question-body .comments .comment-element {

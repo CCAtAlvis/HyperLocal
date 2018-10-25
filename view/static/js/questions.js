@@ -12,7 +12,8 @@ function questions_success (data) {
   for(i = 0; i < data.message.length; i++)
     nearbyHtml += `<div class="feed-element" onclick="feed_click(this)" 
       data-question-id="${data.message[i].question_id}"
-      data-question-poster="${data.message[i].username}">
+      data-question-poster="<i>By:</i> ${data.message[i].username} &nbsp; &nbsp;| &nbsp; &nbsp;"
+      data-question-time="${data.message[i].created_on}">
       ${data.message[i].question} 
       </div>`;
 
@@ -106,6 +107,7 @@ $(document).ready(function() {
 function feed_click(_this) {
   var question_id = _this.getAttribute('data-question-id');
   var question_poster = _this.getAttribute('data-question-poster');
+  var question_time = _this.getAttribute('data-question-time');
   // console.log(_this.getAttribute('data-question-id'));
   $.ajax({
     type: 'POST',
@@ -118,7 +120,7 @@ function feed_click(_this) {
   $(".load-question").fadeIn();
   $("#comments-div").text('');
   $(".load-question-body .question").text(_this.innerHTML);
-  $(".load-question-body #question-poster").text(question_poster);
+  $(".load-question-body #question-poster").html(question_poster + question_time);
   $(".form-add-comment input[name=question_id]").attr('value', question_id);
 
 }
