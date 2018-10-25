@@ -226,9 +226,10 @@ function report_question(_this) {
 
 function report_question_success(data) {
   console.log(data);
-  // data = JSON.parse(data);
+  data = JSON.parse(data);
 
   if (data.status != 'SUCCESS') return;
+  else alert('The question has been reported.');
 }
 
 
@@ -246,6 +247,10 @@ function rate_question(e) {
 }
 
 function rate_question_success(data) {
-  console.log(data);
+  // console.log(data);
+  data = JSON.parse(data);
+
+  if (data.status != 'SUCCESS') return;
+  else alert('Thanks for rating the question!');
 }
 
