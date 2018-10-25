@@ -79,9 +79,6 @@ try {
     }
 
     $conn = null;
-    
-    $res["status"]="SUCCESS";
-    $res["message"]="Logging you in";
 
     // start user session
     $_SESSION["login"] = "LOGIN";
@@ -101,8 +98,11 @@ try {
     $cookie["value"] = $result["user_id"];
     setcookie($cookie["name"], $cookie["value"], $cookie["time"], "/");
 
-    $resJson = json_encode($res);
-    die($resJson);
+    $res["status"]="SUCCESS";
+    $res["message"]="Redirect User";
+
+    $res = json_encode($res);
+    die($res);
 }
 catch(Exception $e) {
     // echo 'ERROR: ' . $e->getMessage();

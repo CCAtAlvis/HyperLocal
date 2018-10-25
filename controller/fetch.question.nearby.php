@@ -16,17 +16,20 @@ try {
     $latitude = (double) $latitude;
     $longitude = (double) $longitude;
 
-    $min_latitude = $latitude - 0.0005;
-    $max_latitude = $latitude + 0.0005;
+    $min_latitude = $latitude - 0.05;
+    $max_latitude = $latitude + 0.05;
 
-    $min_longitude = $longitude - 0.0005;
-    $max_longitude = $longitude + 0.0005;
+    $min_longitude = $longitude - 0.05;
+    $max_longitude = $longitude + 0.05;
 
-    $query = $conn->prepare("SELECT * FROM questions
+    $query = $conn->prepare("SELECT q.question, q.question_id, q.created_on, l.username
+        FROM questions as q, login as l
         WHERE
             latitude BETWEEN :min_latitude AND :max_latitude
         AND
-            longitude BETWEEN :min_longitude AND :max_longitude");
+            longitude BETWEEN :min_longitude AND :max_longitude
+        AND
+            q.user_id = l.user_id");
     
     $query->bindParam(':min_latitude', $min_latitude);
     $query->bindParam(':max_latitude', $max_latitude);

@@ -7,29 +7,14 @@ let commentsBody = document.getElementById('comments-div');
 function questions_success (data) {
   console.log("Success : " + data);
   data = JSON.parse(data);
+  nearbyHtml = "";
 
   if (data.status != 'SUCCESS') return;
 
   for(i = 0; i < data.message.length; i++)
-    nearbyHtml += `<div class="feed-element" data-question-id="${i}">` + data.message[i].question + `</div>`;
+    nearbyHtml += `<div class="feed-element" onclick="feed_click(this)" data-question-id="${data.message[i].question_id}">` + data.message[i].question + `</div>`;
 
   feedBody.innerHTML = nearbyHtml;
-
-  $('.feed-element').click(function(e) {
-    console.log($(this).attr('data-question-id'));
-  
-    $.ajax({
-      type: 'POST',
-      url: './api/fetch/comment',
-      data: "question_id=" + $(this).attr('data-question-id'),
-      success: comments_success,
-      error: comments_error
-    });
-  
-    $(".load-question").fadeIn();
-    $(".load-question-body .question").text($(this).text())
-  
-  });    
 }
 
 function questions_error (data) {
@@ -94,7 +79,6 @@ $('input[name=filter-selector]').click(function(e) {
   }
 });
 
-
 // TODOs for API routing:
 // add routing for fetching questions according to catogries
 
@@ -116,6 +100,21 @@ $(document).ready(function() {
   });
 });
 
+function feed_click(_this) {
+  console.log(_this.getAttribute('data-question-id'));
+  $.ajax({
+    type: 'POST',
+    url: './api/fetch/comment',
+    data: "question_id=" + _this.getAttribute('data-question-id'),
+    success: comments_success,
+    error: comments_error
+  });
+
+  $(".load-question").fadeIn();
+  $(".load-question-body .question").text(_this.innerHTML);
+
+}
+
 
 function create_question (e) {
   e.preventDefault();
@@ -123,9 +122,13 @@ function create_question (e) {
     type: 'POST',
     url: './api/create/question',
     data: $("#create-question-form").serialize() ,
-    success: nearby_questions_success,
+    success: insert_questions_success,
     error: questions_error
   });
+}
+
+function insert_questions_success(data) {
+  console.log(data);
 }
 
 function create_comment (e) {
@@ -140,7 +143,7 @@ function create_comment (e) {
 }
 
 $('body').keypress(e=> {
-  console.log(e.originalEvent.charCode);
+  // console.log(e.originalEvent.charCode);
   if(e.originalEvent.charCode === 0) {
     $('.hidden').fadeOut();
   }

@@ -1,9 +1,9 @@
 <?php
 
-session_start();
+// session_start();
 
 require './controller/db.php';
-date_default_timezone_set("Asia/Kolkata");
+// date_default_timezone_set("Asia/Kolkata");
 // header('Content-Type: application/json');
 $res = [];
 
@@ -26,7 +26,10 @@ try {
         die($res);
     }
 
-    $query = $conn->prepare("SELECT * FROM comments WHERE question_id = :question_id");
+    $query = $conn->prepare("SELECT c.comment, c.comment_id, c.created_on, l.username
+        FROM comments as c, login as l
+        WHERE question_id = :question_id AND c.user_id = l.user_id");
+
     $query->bindParam(':question_id', $question_id);
     $query->execute();
 
