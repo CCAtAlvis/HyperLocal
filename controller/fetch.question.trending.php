@@ -6,7 +6,7 @@ $res = [];
 
 try {
 
-    $query = $conn->prepare("SELECT q.question, q.question_id, q.created_on, l.username
+    $query = $conn->prepare("SELECT q.question, q.question_id, q.created_on, l.username, l.user_id
     FROM questions as q, login as l
     WHERE q.created_on >= NOW() - INTERVAL 1 DAY
     AND q.user_id = l.user_id");

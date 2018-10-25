@@ -22,7 +22,7 @@ try {
     $min_longitude = $longitude - 0.05;
     $max_longitude = $longitude + 0.05;
 
-    $query = $conn->prepare("SELECT q.question, q.question_id, q.created_on, l.username
+    $query = $conn->prepare("SELECT q.question, q.question_id, q.created_on, l.username, l.user_id
         FROM questions as q, login as l
         WHERE
             latitude BETWEEN :min_latitude AND :max_latitude
