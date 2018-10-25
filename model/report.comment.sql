@@ -18,3 +18,15 @@ CREATE TABLE `report.comment` (
     ON DELETE SET NULL
     ON UPDATE CASCADE
 ) ENGINE=InnoDB;
+
+DELIMITER $$
+CREATE OR REPLACE TRIGGER `remove_comment_on_threshold`
+AFTER INSERT ON `report.comment`
+FOR EACH ROW BEGIN
+  DECLARE report_count INT;
+  SET report_count = (SELECT COUNT(*) FROM `report.question` WHERE question_id = NEW.question_id);
+  IF report_count > 5 THEN
+    DELETE FROM `comments` WHERE question_id = NEW.question_id;
+  END IF; 
+END$$
+DELIMITER ;

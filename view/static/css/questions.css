@@ -102,10 +102,15 @@
     transition: all 0.1s linear;
 }
 
+.add-comment {
+    margin: 4px;
+    display: flex;
+}
 
-
-
-
+.comment-input {
+    flex-grow: 1;
+    padding: 8px;
+}
 
 .create-question {
     position: fixed;
