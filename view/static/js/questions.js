@@ -3,19 +3,21 @@ let feedBody = document.getElementById('feed-body-div');
 let commentsBody = document.getElementById('comments-div');
 
 function questions_success (data) {
-  // console.log("Questions: " + data);
+  console.log("Questions: " + data);
   data = JSON.parse(data);
   nearbyHtml = "";
 
-  if (data.status != 'SUCCESS') return;
+  if (data.status != 'SUCCESS') {
+    alert(data.message);
+    return;
+  }
 
   for(i = 0; i < data.message.length; i++)
     nearbyHtml += `<div class="feed-element" onclick="feed_click(this)" 
       data-question-id="${data.message[i].question_id}"
       data-question-poster="<i>By:</i> ${data.message[i].username}"
       data-question-time="${data.message[i].created_on}"
-      data-question-creator="${data.message[i].user_id}"
-      >
+      data-question-creator="${data.message[i].user_id}">
       ${data.message[i].question} 
       </div>`;
 
@@ -123,6 +125,12 @@ $(document).ready(function() {
     });
   }
 
+  $('body').keydown(e=> {
+    // console.log(e.originalEvent);
+    if(e.originalEvent.key === "Escape") {
+      $('.hidden').fadeOut();
+    }
+  });
 });
 
 function feed_click(_this) {
@@ -192,9 +200,12 @@ function create_comment (e) {
 }
 
 function insert_comment_success(data) {
-  // console.log(data);
+  console.log(data);
   data = JSON.parse(data);
-  if(data.status != 'SUCCESS') return;
+  if (data.status != 'SUCCESS') {
+    alert(data.message);
+    return;
+  }
 
   var comment = document.getElementById("question-comment").value;
   document.getElementById("insert-comment-form").reset();
@@ -203,13 +214,6 @@ function insert_comment_success(data) {
   commentHtml += '<div class="comment-element">' + comment + '</div>';
   commentsBody.innerHTML = commentHtml;
 }
-
-$('body').keypress(e=> {
-  // console.log(e.originalEvent);
-  if(e.originalEvent.key === "Escape") {
-    $('.hidden').fadeOut();
-  }
-});
 
 
 function report_question(_this) {
@@ -228,7 +232,10 @@ function report_question_success(data) {
   console.log(data);
   data = JSON.parse(data);
 
-  if (data.status != 'SUCCESS') return;
+  if (data.status != 'SUCCESS') {
+    alert(data.message);
+    return;
+  }
   else alert('The question has been reported.');
 }
 
@@ -250,7 +257,10 @@ function rate_question_success(data) {
   // console.log(data);
   data = JSON.parse(data);
 
-  if (data.status != 'SUCCESS') return;
+  if (data.status != 'SUCCESS') {
+    alert(data.message);
+    return;
+  }
   else alert('Thanks for rating the question!');
 }
 

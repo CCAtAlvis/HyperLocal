@@ -20,7 +20,7 @@ if ($login === "LOGIN" && $user_id) {
 
     // set cookies
     $cookie = [];
-    $cookie["time"] =   time() + (60*60*24*30*365);
+    $cookie["time"] = time() + (60*60*24*30*365);
 
     // set cookie for login
     $cookie["name"] = "login";

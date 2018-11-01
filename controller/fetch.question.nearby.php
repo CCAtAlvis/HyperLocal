@@ -16,11 +16,11 @@ try {
     $latitude = (double) $latitude;
     $longitude = (double) $longitude;
 
-    $min_latitude = $latitude - 0.05;
-    $max_latitude = $latitude + 0.05;
+    $min_latitude = $latitude - 0.5;
+    $max_latitude = $latitude + 0.5;
 
-    $min_longitude = $longitude - 0.05;
-    $max_longitude = $longitude + 0.05;
+    $min_longitude = $longitude - 0.5;
+    $max_longitude = $longitude + 0.5;
 
     $query = $conn->prepare("SELECT q.question, q.question_id, q.created_on, l.username, l.user_id
         FROM questions as q, login as l

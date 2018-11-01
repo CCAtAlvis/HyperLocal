@@ -5,14 +5,11 @@ require './controller/db.php';
 $res = [];
 
 try {
-    $query = $conn->prepare("SELECT q.question, q.question_id, q.created_on, l.username, l.user_id
-    FROM questions as q, login as l
-    WHERE q.user_id = l.user_id And
-    question_id IN (
-        SELECT question_id FROM `rating.question` GROUP BY (question_id)
-        ORDER BY avg(rating) DESC
-    ) LIMIT 10");
-    
+    $query = $conn->prepare("SELECT q.question, q.question_id, q.created_on, l.username, l.user_id, avg(r.rating)
+    FROM questions as q, login as l, `rating.question` as r
+    WHERE q.user_id = l.user_id AND r.question_id=q.question_id 
+    GROUP BY (r.question_id) ORDER BY (avg(r.rating)) DESC LIMIT 10");
+
     $query->execute();
 
     $questions = array();

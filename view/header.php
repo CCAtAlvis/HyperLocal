@@ -26,16 +26,16 @@
     <!-- lets load some fonts! -->
     <!-- serif fonts -->
     <!-- <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT|Vidaloka" rel="stylesheet"> -->
-    <link href="https://fonts.googleapis.com/css?family=Alegreya|EB+Garamond|Old+Standard+TT|Playfair+Display|Vidaloka|Domine|Arapye|Cantata+One|Arbutus+Slab" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Old+Standard+TT|Vidaloka" rel="stylesheet">
 
     <!-- few sans serifs -->
-    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300|Open+Sans|Raleway|Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Raleway" rel="stylesheet">
 
     <!-- some handwriting fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Charmonman|Parisienne|Sacramento" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC|Charmonman" rel="stylesheet">
 
     <!-- and fianlly some display fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative|Fredericka+the+Great|Poiret+One|Unica+One|Abril+Fatface" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative|Fredericka+the+Great|Poiret+One|Unica+One|Abril+Fatface" rel="stylesheet"> -->
 
 </head>
 <body>

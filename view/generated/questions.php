@@ -1,4 +1,7 @@
 <?php
+    if(!isset($_SESSION['login']))
+        header("Location: ./sign-in");
+
     $title = "Questions";
 
     $styling = LoadStyling(['main', 'questions']);
@@ -24,21 +27,6 @@
             </div>
 
             <div class="feed-body" id="feed-body-div">
-                <!-- <div class="feed-element" onclick="feed_click(this)" data-question-id="1">
-                    this is a simple questionkb bngdfgdfjggndgjkngdgjndfgldjkflndfkgnlgnsdlkgnsdkl
-                </div>
-                <div class="feed-element">
-                    this is a simple question
-                </div>
-                <div class="feed-element">
-                    this is a simple question
-                </div>
-                <div class="feed-element">
-                    this is a simple question
-                </div>
-                <div class="feed-element">
-                    this is a simple question
-                </div> -->
             </div>
 
         </div>

@@ -8,7 +8,7 @@ const success = function(data, textStatus, xhr) {
   console.log(data);
   var res = JSON.parse(data);
   if (res.status === 'SUCCESS') {
-    location.reload();
+    window.location = './sign-in';
   } else {
     $(".error").fadeIn();
     $(".error").text(res.message);

@@ -6,10 +6,10 @@ $res = [];
 
 try {
 
-    $query = $conn->prepare("SELECT q.question, q.question_id, q.created_on, l.username, l.user_id
-    FROM questions as q, login as l
-    WHERE q.created_on >= NOW() - INTERVAL 1 DAY
-    AND q.user_id = l.user_id ORDER BY q.created_on DESC LIMIT 25");
+    $query = $conn->prepare("SELECT questions.question, questions.question_id, questions.created_on, login.username, login.user_id
+    FROM login 
+    JOIN questions ON questions.user_id = login.user_id 
+    WHERE questions.created_on >= NOW() - INTERVAL 1 DAY  ORDER BY questions.created_on DESC LIMIT 25");
     
     $query->execute();
 
